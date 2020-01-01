@@ -384,7 +384,12 @@ let detailRender = (function () {
     }
 })();
 
+/*在以后真实项目中，如果页面中有滑动需要，我们一定要把document本身滑动的默认行为阻止掉，如果不阻止，浏览器会触发下拉刷新或左右页卡切换*/
+$(document).on('touchstart touchmove touchend',(ev)=>{
+    ev.preventDefault();
+});
 
+/*HASH*/
 //开发程中，由于当前板块众多（每个板块都是一个单例），我们最好规划一种机制，通过表识的判断让程序只执行对应模块内容（HASH路由控制）
 
 let url = window.location.href,//=>获取当前页面的URL地址  location.href='xxx'这种写法是让其跳转到某一个页面
